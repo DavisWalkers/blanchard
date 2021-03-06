@@ -2,13 +2,26 @@
 
 $black: #000000;
 $white: #FFFFFF;
-$font-color: #333333;
-$main-pink: #9D5CD0;
-$border-color: #999999;
-$date-border-color: #CACACA;
+$dark-gray: #333333;
+$gray: #999999;
+$light-gray: #CACACA;
+$light-pink: #C283F3;
+$pink: #9D5CD0;
+$pink-dark: #7943A4;
 
 * {
   box-sizing: border-box;
+}
+
+div:focus, 
+li:focus,
+a:focus, 
+svg:focus, 
+input:focus {
+   outline-width: 1px;
+   outline-style: solid;
+   outline-color: $pink-dark;
+   outline-offset: 5px;
 }
 
 body {
@@ -39,7 +52,7 @@ a {
   font-size: 18px;
   font-weight: 700;
   color: $white;
-  background-color: $main-pink;
+  background-color: $pink;
 }
 
 .section-header {
@@ -47,31 +60,31 @@ a {
   font-size: 48px;
   font-weight: 400;
   line-height: 65px;
-  color: $font-color;
+  color: $dark-gray;
 }
 
 // Header
 
 .header {
 
-    position: absolute;
-    width: 100%;
-    z-index: 1;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
 
 		&__upper-container {
-      margin: 0;
-      padding: 30px 160px;
-      background-color: $black;
-      height: 100px;
+         margin: 0;
+         padding: 30px 160px;
+         background-color: $black;
+         height: 100px;
 		}
 
 		&__upper {
-      display: flex;
-      align-items: center;
+         display: flex;
+         align-items: center;
 		}
 
 		&__logo {
-      margin-right: 179px;
+         margin-right: 179px;
 		}
 
       &__logo-img {
@@ -96,91 +109,152 @@ a {
          line-height: 24px;
       }
 
-   &__upper-item:not(:last-child) {
-      margin-right: 65.3px;
-   }
-
-   &__upper-link {
-      color: $white;
-   }
-
-   &__login {
-      margin-left: auto;
-      margin-bottom: 4px;
-      padding-left: 20px;
-      background-image: url("../img/enter-icon.svg");
-      background-repeat: no-repeat;
-      background-position: 0 60%;
-      transform: translateY(-2px);
-   }
-
-      &__login-text {
-      font-size: 18px;
-      color: $white;
+      &__upper-item:not(:last-child) {
+         margin-right: 65.3px;
       }
 
-    &__lower-container {
-      margin: 0;
-      padding: 0 160px;
-      background-color: rgba($black, 0.4);
+      &__upper-link {
+         color: $white;
+      }
+
+      &__upper-link:hover {
+         color: $light-pink;
+      }
+
+      &__upper-link:active {
+         color: $pink;
+      }
+
+      &__login {
+         margin-left: auto;
+         margin-bottom: 4px;
+      }
+
+      &__login:hover &__login-text {
+         color: $light-pink;
+      }
+
+      &__login:hover &__login-icon path {
+         fill: $light-pink;
+      }
+
+      &__login:active &__login-text {
+         color: $pink;
+      }
+
+      &__login:active &__login-icon path {
+         fill: $pink;
+      }
+
+      &__login-icon {
+         display: inline-block;
+         height: 13px;
+         width: 13px;
+      }
+
+      &__login-text {
+         font-size: 18px;
+         color: $white;
+      }
+
+      &__lower-container {
+         margin: 0;
+         padding: 0 160px;
+         background-color: rgba($black, 0.4);
 		}
 
 		&__lower {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 70px;
 		}
 
 		&__lower-list {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+         display: flex;
+         margin: 0;
+         padding: 0;
+         list-style: none;
 		}
 
-   &__lower-item {
-      padding-right: 16px;
-      font-size: 18px;
-      background-image: url('../img/arrow-down.svg');
-      background-repeat: no-repeat;
-      background-position: 100% 50%;
-      color: $white;
-   }
+      &__lower-item {
+         cursor: pointer;
+         font-size: 18px;
+         color: $white;
+      }
 
-    &__lower-item:not(:last-child) {
-      margin-right: 97px;
-    }
+      &__lower-item:hover {
+         color: $light-pink;
+      }
 
-    &__label {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      background-image: url('../img/search-icon.svg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      transform: translate(5px, 6px);
-    }
+      &__lower-item:hover &__lower-item-icon path {
+         stroke: $light-pink;
+      }
 
-   &__input {
-      max-width: 218px;
-      padding: 0;
-      margin: 0;
-      margin-left: 10px;
-      border: 0;
-      border-bottom: 1px solid rgba($white, 0.85);
-      font-size: 18px;
-      background-color: transparent;
-      color: $white;
-   }
+      &__lower-item:active {
+         color: $pink;
+      }
 
-    &__input:focus {
-      outline: 0;
-    }
+      &__lower-item:active &__lower-item-icon path {
+         stroke: $pink;
+      }
 
-    &__input::placeholder {
-      color: rgba($white, 0.85);
-    }
+      &__lower-item:not(:last-child) {
+         margin-right: 96px;
+      }
+
+      &__label {
+         display: inline-block;
+         width: 22px;
+         height: 22px;
+         background-image: url('../img/search-icon.svg');
+         background-repeat: no-repeat;
+         background-position: center center;
+         transform: translate(5px, 6px);
+      }
+
+      &__input {
+         max-width: 218px;
+         padding: 0;
+         margin: 0;
+         margin-left: 10px;
+         border: 0;
+         border-bottom: 1px solid rgba($white, 0.85);
+         font-size: 18px;
+         background-color: transparent;
+         color: $white;
+      }
+
+      &__input::placeholder {
+         color: rgba($white, 0.85);
+      }
+
+      &__lower-search:hover &__input {
+         cursor: pointer;
+         border-color: $pink;
+      }
+
+      &__lower-search:hover &__label {
+         cursor: pointer;
+      }
+
+      &__lower-search:hover &__lower-search-icon rect {
+         fill: $pink;
+      }
+
+      &__lower-search:hover &__lower-search-icon path {
+         fill: $pink;
+      }
+
+      &__input:focus {
+         outline: 1px solid $pink;
+         outline-offset: 5px;
+         border-color: $pink;
+      }
+
+      &__input:focus::placeholder {
+         color: transparent;
+      }
 }
 
 // Hero
@@ -234,7 +308,7 @@ a {
       width: 67.5%;
       margin: 0;
       margin-top: 15px;
-      color: $font-color;
+      color: $dark-gray;
       line-height: 32px;
 		}
 }
@@ -303,9 +377,9 @@ a {
          max-height: 40px;
          padding: 4px 20px;
          padding-top: 1px;
-         border: 1px solid $border-color;
+         border: 1px solid $gray;
          line-height: 32px;
-         color: $border-color;
+         color: $gray;
 		}
 
 		&__filter-item--selected {
@@ -337,7 +411,7 @@ a {
 		}
 
 		&__description-link {
-         color: $main-pink;
+         color: $pink;
 		}
 
       &__pagination {
@@ -367,7 +441,7 @@ a {
 
 .catalog {
 
-  color: $font-color;
+  color: $dark-gray;
 
    &__container {
       margin-top: 80px;
@@ -409,7 +483,7 @@ a {
   }
 
   &__heading-item--selected {
-    border: 2px solid $main-pink;
+    border: 2px solid $pink;
     border-radius: 50%;
   }
 
@@ -468,7 +542,7 @@ a {
     margin-top: 10px;
     font-size: 12px;
     line-height: 16px;
-    color: $border-color;
+    color: $gray;
   }
 
   &__column-description {
@@ -490,7 +564,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
-    border: 1px solid $date-border-color;
+    border: 1px solid $light-gray;
     border-left: 0;
     border-right: 0;
   }
@@ -518,7 +592,7 @@ a {
    &__item-content {
       width: 100%;
       padding: 26px 0;
-      border-top: 1px solid $main-pink;
+      border-top: 1px solid $pink;
    }
 
    &__item-list {
@@ -571,16 +645,16 @@ a {
 		&__btn {
          padding: 17px 35px;
          margin-top: 50px;
-         border: 2px solid $main-pink;
+         border: 2px solid $pink;
          background-color: transparent;
-         color: $main-pink;
+         color: $pink;
 		}
 }
 
 .event-card {
 
       max-height: 700px;
-      border: 1px solid $date-border-color;
+      border: 1px solid $light-gray;
 
 		&__figure {
          min-height: 300px;
@@ -604,7 +678,7 @@ a {
          width: 150px;
          font-size: 12px;
          line-height: 16px;
-         color: $border-color;
+         color: $gray;
 		}
 
 		&__content {
@@ -613,7 +687,7 @@ a {
          align-items: flex-start;
          min-height: 400px;
          padding: 0 30px 91px 50px;
-         color: $font-color;
+         color: $dark-gray;
 		}
 
 		&__header {
@@ -633,8 +707,8 @@ a {
 		&__link {
          display: inline-block;
          margin-top: auto;
-         border-bottom: 1px solid $main-pink;
-         color: $main-pink;
+         border-bottom: 1px solid $pink;
+         color: $pink;
 		}
 
       &__btn {
@@ -701,7 +775,7 @@ a {
 		}
 
       &__filter-item--selected {
-         color: $main-pink;
+         color: $pink;
       }
 
 		&__label {
@@ -735,7 +809,7 @@ a {
       }
 
       &__input-checkbox:checked + &__checkbox-custom {
-         border-color: $main-pink;
+         border-color: $pink;
       }
 
 		&__price {
@@ -760,10 +834,10 @@ a {
          height: 100%;
          width: 73px;
          padding: 4px 10px;
-         border: 1px solid rgba($main-pink, .5);
+         border: 1px solid rgba($pink, .5);
          border-right: 0;
          border-left: 0;
-         background: rgba($main-pink, 0.5);
+         background: rgba($pink, 0.5);
          color: $white;
 		}
 
@@ -863,7 +937,7 @@ a {
          max-width: 120px;
          min-height: 40px;
          padding: 8px 14px;
-         border: 2px solid $main-pink;
+         border: 2px solid $pink;
          font-size: 16px;
          line-height: 22px;
          font-weight: 700;
@@ -930,7 +1004,7 @@ a {
          align-items: center;
          min-width: 450px;
          min-height: 150px;
-         border: 1px solid $date-border-color;
+         border: 1px solid $light-gray;
 		}
 
       &__item:not(:last-child) {
@@ -960,12 +1034,12 @@ a {
          padding-right: 122px;
          padding-bottom: 116px;
          padding-left: 160px;
-         border: 1px solid $date-border-color;
+         border: 1px solid $light-gray;
       }
 
 		&__column:last-of-type {
          width: 70%;
-         background-color: $border-color;
+         background-color: $gray;
          background-image: url("../img/map.png");
          background-size: cover;
 		}
@@ -1001,12 +1075,12 @@ a {
          min-width: 400px;
          height: 40px;
          padding: 4px 24px;
-         border: 1px solid $font-color;
+         border: 1px solid $dark-gray;
          border-radius: 100px;
 		}
 
       &__input::placeholder {
-         color: $border-color;
+         color: $gray;
       }
 
 		&__btn {
@@ -1014,12 +1088,12 @@ a {
          max-width: 160px;
          padding: 26px 34px;
          margin-top: -4px;
-         border: 2px solid $main-pink;
+         border: 2px solid $pink;
          font-size: 18px;
          line-height: 24px;
          font-weight: 700;
          background-color: transparent;
-         color: $main-pink;
+         color: $pink;
 		}
 
 		&__social {
