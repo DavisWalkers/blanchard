@@ -131,6 +131,7 @@ a {
       &__login {
          margin-left: auto;
          margin-bottom: 4px;
+         white-space: nowrap;
       }
 
       &__login:hover &__login-text {
@@ -186,6 +187,7 @@ a {
 		}
 
       &__lower-item {
+         white-space: nowrap;
          cursor: pointer;
          font-size: 18px;
          color: $white;
@@ -214,6 +216,10 @@ a {
 
       &__lower-item:not(:last-child) {
          margin-right: 96px;
+      }
+
+      &__lower-search {
+         white-space: nowrap;
       }
 
       &__label {
@@ -284,7 +290,7 @@ a {
          margin: 0;
          padding: 0 160px;
          padding-top: 240px;
-         padding-bottom: 122px;
+         padding-bottom: 116px;
          background-image: url("../img/hero-img-1.jpg");
 		}
 
