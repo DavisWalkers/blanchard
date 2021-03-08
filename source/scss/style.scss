@@ -17,8 +17,10 @@ div:focus,
 li:focus,
 a:focus, 
 svg:focus, 
-input:focus {
-   outline-width: 1px;
+input:focus,
+span:focus, 
+label:focus {
+   outline-width: 2px;
    outline-style: solid;
    outline-color: $pink-dark;
    outline-offset: 5px;
@@ -115,6 +117,7 @@ a {
 
       &__upper-link {
          color: $white;
+         transition: color .15s ease;
       }
 
       &__upper-link:hover {
@@ -152,9 +155,14 @@ a {
          width: 13px;
       }
 
+      &__login-icon path {
+         transition: fill .15s ease;
+      }
+
       &__login-text {
          font-size: 18px;
          color: $white;
+         transition: color .15s ease;
       }
 
       &__lower-container {
@@ -181,6 +189,11 @@ a {
          cursor: pointer;
          font-size: 18px;
          color: $white;
+         transition: color .15s ease;
+      }
+
+      &__lower-item-icon path {
+         transition: stroke .15s ease;
       }
 
       &__lower-item:hover {
@@ -207,9 +220,6 @@ a {
          display: inline-block;
          width: 22px;
          height: 22px;
-         background-image: url('../img/search-icon.svg');
-         background-repeat: no-repeat;
-         background-position: center center;
          transform: translate(5px, 6px);
       }
 
@@ -223,6 +233,12 @@ a {
          font-size: 18px;
          background-color: transparent;
          color: $white;
+         transition: border-color .15s ease;
+      }
+
+      &__lower-search-icon rect, 
+      &__lower-search-icon path {
+         transition: fill .15s ease;
       }
 
       &__input::placeholder {
@@ -265,33 +281,66 @@ a {
     color: $white;
 
 		&__container {
-      margin: 0;
-      padding: 0 160px;
-      padding-top: 240px;
-      padding-bottom: 122px;
-      background-image: url("../img/hero-img-1.jpg");
+         margin: 0;
+         padding: 0 160px;
+         padding-top: 240px;
+         padding-bottom: 122px;
+         background-image: url("../img/hero-img-1.jpg");
 		}
 
 		&__header {
-      width: 36%;
-      margin: 0;
-      font-size: 72px;
-      line-height: 82px;
-      font-weight: 700;
+         width: 36%;
+         margin: 0;
+         font-size: 72px;
+         line-height: 82px;
+         font-weight: 700;
 		}
 
 		&__description {
-      width: 36%;
-      margin: 0;
-      margin-top: 22px;
-      margin-bottom: 92px;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 30px;
+         width: 36%;
+         margin: 0;
+         margin-top: 22px;
+         margin-bottom: 92px;
+         font-size: 18px;
+         font-weight: 700;
+         line-height: 30px;
 		}
 
       &__btn {
-         max-width: 314px;
+         position: relative;
+         max-width: 320px;
+         border: 3px solid $pink;
+         transition: border .2s ease, background-color .2s ease;
+      }
+
+      &__btn:hover {
+         border: 3px solid $light-pink;
+      }
+
+      &__btn:focus {
+         outline: 0;
+      }
+
+      &__btn::after {
+         content: "";
+         position: absolute;
+         padding: 42px 165px;
+         top: -10px;
+         bottom: 0;
+         right: 0;
+         left: -12px;
+         border: 3px solid $pink-dark;
+         border-radius: 100px;
+         opacity: 0;
+         transition: opacity .2s ease;
+      }
+
+      &__btn:focus::after {
+         opacity: 1;
+      }
+
+      &__btn:active {
+         background-color: $pink-dark;
       }
 }
 
@@ -379,6 +428,7 @@ a {
          padding-top: 1px;
          border: 1px solid $gray;
          line-height: 32px;
+         cursor: pointer;
          color: $gray;
 		}
 
@@ -425,6 +475,45 @@ a {
          margin-right: 20px;
       }
 
+      &__pagination-btn {
+         position: relative;
+         cursor: pointer;
+      }
+
+      &__pagination-btn:focus {
+         outline: 0;
+      }
+
+      &__pagination-btn::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 30px;
+         height: 30px;
+         margin: -2px;
+         border: 2px solid $pink-dark;
+         border-radius: 50%;
+         opacity: 0;
+         transition: opacity .15s ease, border-color .15s ease;
+      }
+
+      &__pagination-btn path {
+         transition: fill .15s ease;
+      }
+
+      &__pagination-btn:focus::after {
+         opacity: 1;
+      }
+
+      &__pagination-btn:hover path:first-of-type {
+         fill: $pink;
+      }
+
+      &__pagination-btn:active::after {
+         border-color: $light-pink;
+      } 
+
 		&__layout-list {
          display: grid;
          grid-template-columns: auto auto auto;
@@ -448,132 +537,223 @@ a {
       margin-bottom: 80px;
    }
 
-  &__heading {
+   &__heading {
       display: flex;
       align-items: center;
-  }
+   }
 
-  &__header {
-    margin-right: 32px;
-  }
+   &__header {
+      margin-right: 32px;
+   }
 
-  &__heading-list {
-    display: flex;
-    margin: 0;
-    margin-top: 5px;
-    padding: 0;
-    list-style: none;
-  }
+   &__heading-list {
+      display: flex;
+      margin: 0;
+      margin-top: 5px;
+      padding: 0;
+      list-style: none;
+   }
 
-  &__heading-item {
-    height: 66px;
-    width: 66px;
-  }
+   &__heading-item {
+      height: 66px;
+      width: 66px;
+      cursor: pointer;
+   }
 
-  &__heading-item:not(:last-child) {
-    margin-right: 30px;
-  }
+   &__heading-item:focus {
+      outline: 0;
+   }
 
-  &__heading-img {
-    display: inline-block;
-    height: 66px;
-    width: 66px;
-    background-repeat: no-repeat;
-    background-position: 40% 40%;
-  }
+   &__heading-item:not(:last-child) {
+      margin-right: 30px;
+   }
 
-  &__heading-item--selected {
-    border: 2px solid $pink;
-    border-radius: 50%;
-  }
+   &__heading-link {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      transition: filter .2s ease;
+   }
 
-  &__heading-img--france {
-    background-image: url("../img/france.png");
-  }
+   &__heading-link:active,
+   &__heading-link:focus {
+      outline: none;
+   }
 
-  &__heading-img--germany {
-    background-image: url("../img/germany.png");
-  }
+   &__heading-link:hover,
+   &__heading-link:focus {
+      filter: drop-shadow(0px 0px 20px rgba($pink-dark, 0.7));
+   }
 
-  &__heading-img--italy {
-    background-image: url("../img/italy.png");
-  }
+   &__heading-link::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      left: 9px;
+      height: 44px;
+      width: 44px;
+      margin: -2px;
+      border: 2px solid $pink-dark;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity .2s ease;
+   }
 
-  &__heading-img--russia {
-    background-image: url("../img/russia.png");
-  }
+   &__heading-link:active {
+      filter: none;
+   }
 
-  &__heading-img--belgium {
-    background-image: url("../img/belgium.png");
-  }
+   &__heading-link:active::after {
+      opacity: 1;
+   }
 
-  &__description {
-    margin: 0;
-    margin-top: 13px;
-    width: 67.5%;
-    line-height: 32px;
-  }
+   &__heading-img {
+      display: inline-block;
+      height: 66px;
+      width: 66px;
+      background-repeat: no-repeat;
+      background-position: 40% 40%;
+   }
 
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
-  }
+   &__heading-item--selected {
+      border: 2px solid $pink;
+      border-radius: 50%;
+   }
 
-  &__column:first-of-type {
-    margin-right: 50px;
-    width: 47%;
-  }
+   &__heading-img--france {
+      background-image: url("../img/france.png");
+   }
 
-  &__column:last-of-type {
-    width: 50%;
-  }
+   &__heading-img--germany {
+      background-image: url("../img/germany.png");
+   }
 
-  &__column-header {
-    margin: 0;
-    margin-top: 28px;
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
+   &__heading-img--italy {
+      background-image: url("../img/italy.png");
+   }
 
-  &__dates {
-    margin: 0;
-    margin-top: 10px;
-    font-size: 12px;
-    line-height: 16px;
-    color: $gray;
-  }
+   &__heading-img--russia {
+      background-image: url("../img/russia.png");
+   }
 
-  &__column-description {
-    margin: 0;
-    margin-top: 5px;
-    line-height: 32px;
-  }
+   &__heading-img--belgium {
+      background-image: url("../img/belgium.png");
+   }
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+   &__description {
+      margin: 0;
+      margin-top: 13px;
+      width: 67.5%;
+      line-height: 32px;
+   }
 
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border: 1px solid $light-gray;
-    border-left: 0;
-    border-right: 0;
-  }
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 35px;
+   }
 
-  &__item:first-of-type {
-     flex-direction: column;
-     justify-content: center;
-     padding: 0;
-  }
+   &__column:first-of-type {
+      margin-right: 50px;
+      width: 47%;
+   }
+
+   &__column:last-of-type {
+      width: 50%;
+   }
+
+   &__column-header {
+      margin: 0;
+      margin-top: 28px;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 600;
+   }
+
+   &__dates {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 16px;
+      color: $gray;
+   }
+
+   &__column-description {
+      margin: 0;
+      margin-top: 5px;
+      line-height: 32px;
+   }
+
+   &__list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+   }
+
+   &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border: 1px solid $light-gray;
+      border-left: 0;
+      border-right: 0;
+      cursor: pointer;
+      transition: border-color .2s ease;
+   }
+
+   &__item-img {
+      transition: transform .2s ease;
+   }
+
+   &__item-img path {
+      transition: fill .2s ease;
+   }
+
+   &__item:hover {
+      border-color: $pink;
+   }
+
+   &__item:hover &__item-text {
+      color: $pink;
+   }
+
+   &__item:hover &__item-img path:first-of-type {
+      fill: $pink;
+   }
+
+   &__item:hover &__item-img path:last-of-type {
+      stroke: $white;
+   }
+
+   &__item:active {
+      border-color: $pink-dark;
+      outline: 0;
+   }
+
+   &__item:active &__item-text {
+      color: $pink-dark;
+   }
+
+   &__item:active &__item-img path:first-of-type {
+      fill: $pink-dark;
+   }
+
+   &__item:active &__item-img {
+      border: 2px solid $light-pink;
+      border-radius: 50%;
+      transform: rotate(180deg);
+   }
+
+   &__item:first-of-type {
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+   }
 
    &__item-header {
       width: 100%;
@@ -587,12 +767,15 @@ a {
       font-size: 24px;
       font-weight: 600;
       line-height: 32px;
+      transition: color .2s ease;
    }
 
    &__item-content {
       width: 100%;
       padding: 26px 0;
+      margin-bottom: -1px;
       border-top: 1px solid $pink;
+      border-bottom: 1px solid $pink;
    }
 
    &__item-list {
@@ -601,9 +784,24 @@ a {
       list-style: none;
    }
 
-   &__item-author {
+   &__item-link {
       font-size: 16px;
       line-height: 32px;
+      color: $dark-gray;
+      transition: color .15s ease, padding-bottom .15s ease, border-bottom .15s ease;
+   } 
+
+   &__item-link:hover {
+      padding-bottom: 2px;
+      border-bottom: 1px solid $pink;
+      color: $pink;
+   }
+
+   &__item-link:active {
+      padding-bottom: 0;
+      border: none;
+      outline: 0;
+      color: $pink-dark;
    }
 }
 
@@ -643,12 +841,48 @@ a {
       } 
 
 		&__btn {
+         position: relative;
          padding: 17px 35px;
          margin-top: 50px;
          border: 2px solid $pink;
+         outline: 0;
          background-color: transparent;
          color: $pink;
+         transition: color .2s ease, background-color .2s ease;
 		}
+
+      &__btn:focus {
+         outline: 0;
+      }
+
+      &__btn::after {
+         content: "";
+         position: absolute;
+         top: -7px;
+         left: -8px;
+         right: 0;
+         bottom: 0;
+         padding: 34px 99px;
+         border: 2px solid $light-pink;
+         border-radius: 100px;
+         opacity: 0;
+         transition: opacity .2s ease;
+      }
+
+      &__btn:focus::after {
+         opacity: 1;
+      }
+
+      &__btn:hover {
+         background-color: $pink;
+         color: $white;
+      }
+
+      &__btn:active {
+         border: 3px solid $light-pink;
+         margin-top: 48px;
+         outline: 0;
+      }
 }
 
 .event-card {
@@ -709,10 +943,17 @@ a {
          margin-top: auto;
          border-bottom: 1px solid $pink;
          color: $pink;
+         transition: font-weight .15s ease, color .15s ease;
 		}
 
-      &__btn {
-         margin-top: 100px;
+      &__link:hover {
+         font-weight: 700;
+      }
+
+      &__link:active {
+         outline: 0;
+         color: $pink-dark;
+         border-color: $pink-dark;
       }
 }
 
@@ -775,13 +1016,35 @@ a {
 		}
 
       &__filter-item--selected {
-         color: $pink;
+         color: $light-pink;
       }
 
 		&__label {
          position: relative;
          padding-left: 24px;
+         cursor: pointer;
+         transition: color .15s ease;
 		}
+
+      &__label:hover {
+         color: $light-pink;
+      }
+
+      &__label:hover &__checkbox-custom {
+         border-color: $light-pink;
+      }
+
+      &__label:hover &__checkbox-custom::before {
+         opacity: 1;
+      }
+
+      &__label:active {
+         color: $pink-dark;
+      }
+
+      &__label:active &__checkbox-custom {
+         border-color: $pink-dark;
+      }
 
 		&__input-checkbox {
          display: none;
@@ -794,6 +1057,7 @@ a {
          width: 12px;
          height: 12px;
          border: 1px solid $white;  
+         transition: border-color .15s ease;
       }
 
       &__checkbox-custom::before {
@@ -802,6 +1066,7 @@ a {
          top: -15px;
          left: 3px;
          opacity: 0;
+         transition: opacity .15s ease;
       } 
 
       &__input-checkbox:checked + &__checkbox-custom::before {
@@ -890,6 +1155,45 @@ a {
          margin: 0 20px;
       }
 
+      &__pagination-btn {
+         position: relative;
+         cursor: pointer;
+      }
+
+      &__pagination-btn:focus {
+         outline: 0;
+      }
+
+      &__pagination-btn::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 30px;
+         height: 30px;
+         margin: -2px;
+         border: 2px solid $pink-dark;
+         border-radius: 50%;
+         opacity: 0;
+         transition: opacity .15s ease, border-color .15s ease;
+      }
+
+      &__pagination-btn path {
+         transition: fill .15s ease;
+      }
+
+      &__pagination-btn:focus::after {
+         opacity: 1;
+      }
+
+      &__pagination-btn:hover path:first-of-type {
+         fill: $pink;
+      }
+
+      &__pagination-btn:active::after {
+         border-color: $light-pink;
+      } 
+
 		&__layout {
          margin-top: 27px;
 		}
@@ -933,6 +1237,7 @@ a {
 		}
 
 		&__btn {
+         position: relative;
          margin-top: 12px;
          max-width: 120px;
          min-height: 40px;
@@ -942,7 +1247,41 @@ a {
          line-height: 22px;
          font-weight: 700;
          background-color: transparent;
+         transition: background-color .2s ease, color .2s ease;
 		}
+
+      &__btn:focus {
+         outline: 0;
+      }
+
+      &__btn::after {
+         content: "";
+         position: absolute;
+         top: -7px;
+         left: -8px;
+         right: 0;
+         bottom: 0;
+         padding: 24px 64px;
+         border: 2px solid $light-pink;
+         border-radius: 100px;
+         opacity: 0;
+         transition: opacity .2s ease;
+      }
+
+      &__btn:focus::after {
+         opacity: 1;
+      }
+
+      &__btn:hover {
+         background-color: $pink;
+         color: $white;
+      }
+
+      &__btn:active {
+         margin-top: 10px;
+         border: 3px solid $light-pink;
+         outline: 0;
+      }
 }
 
 // Projects
@@ -960,6 +1299,25 @@ a {
          width: 67.5%;
          line-height: 32px;
 		}
+
+      &__description-link {
+         color: $pink;
+         transition: padding-bottom .15s ease;
+      }
+
+      &__description-link:hover {
+         padding-bottom: 2px;
+         border-bottom: 1px solid $pink;
+      }
+
+      &__description-link:active {
+         border-color: $pink-dark;
+         color: $pink-dark;
+      }
+
+      &__tooltip:focus {
+         outline-offset: 1px;
+      }
 
 		&__tooltip-img {
          display: inline-block;
@@ -985,9 +1343,48 @@ a {
          margin-top: 23px;
 		}
 
-		&__pagination-btn:hover {
+      &__pagination-btn {
+         position: relative;
          cursor: pointer;
-		}
+      }
+
+      &__pagination-btn:focus {
+         outline: 0;
+      }
+
+      &__pagination-btn::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 30px;
+         height: 30px;
+         margin: -2px;
+         border: 2px solid $pink-dark;
+         border-radius: 50%;
+         opacity: 0;
+         transition: opacity .2s ease;
+      }
+
+      &__pagination-btn path {
+         transition: fill .2s ease, stroke .2s ease;
+      }
+
+      &__pagination-btn:focus::after {
+         opacity: 1;
+      }
+
+      &__pagination-btn:hover path:first-of-type {
+         fill: $pink;
+      }
+
+      &__pagination-btn:hover path:last-of-type {
+         stroke: $white;
+      }
+
+      &__pagination-btn:active::after {
+         border-color: $light-pink;
+      }
 
 		&__list {
          display: flex;
@@ -1005,10 +1402,23 @@ a {
          min-width: 450px;
          min-height: 150px;
          border: 1px solid $light-gray;
+         cursor: pointer;
 		}
 
       &__item:not(:last-child) {
          margin-right: 50px;
+      }
+
+      &__img {
+         filter: grayscale(1);
+         opacity: 0.4;
+         transition: filter .2s ease, opacity .2s ease;
+      }
+
+      &__item:hover &__img, 
+      &__item:focus &__img {
+         filter: none;
+         opacity: 1;
       }
 }
 
@@ -1084,6 +1494,7 @@ a {
       }
 
 		&__btn {
+         position: relative;
          height: 25px;
          max-width: 160px;
          padding: 26px 34px;
@@ -1094,7 +1505,41 @@ a {
          font-weight: 700;
          background-color: transparent;
          color: $pink;
+         transition: color .2s ease, background-color .2s ease;
 		}
+
+      &__btn:focus {
+         outline: 0;
+      }
+
+      &__btn::after {
+         content: "";
+         position: absolute;
+         top: -6px;
+         left: -6px;
+         right: 0;
+         bottom: 0;
+         padding: 30px 82px;
+         border: 2px solid $light-pink;
+         border-radius: 100px;
+         opacity: 0;
+         transition: opacity .2s ease;
+      }
+
+      &__btn:focus::after {
+         opacity: 1;
+      }
+
+      &__btn:hover {
+         background-color: $pink;
+         color: $white;
+      }
+
+      &__btn:active {
+         margin-top: -6px;
+         border: 3px solid $light-pink;
+         outline: 0;
+      }
 
 		&__social {
          margin-top: 38px;
@@ -1181,4 +1626,3 @@ a {
       background-image: url("../img/fb.svg");
 		}
 }
-
