@@ -1,0 +1,136 @@
+// Projects
+
+.projects {
+  &__container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  &__description {
+    margin: 0;
+    margin-top: 18px;
+    width: 67.5%;
+    line-height: 32px;
+  }
+
+  &__description-link {
+    color: $pink;
+    transition: padding-bottom 0.15s ease;
+  }
+
+  &__description-link:hover {
+    padding-bottom: 2px;
+    border-bottom: 1px solid $pink;
+  }
+
+  &__description-link:active {
+    border-color: $dark-pink;
+    color: $dark-pink;
+  }
+
+  &__tooltip:focus {
+    outline-offset: 1px;
+  }
+
+  &__tooltip-img {
+    display: inline-block;
+    margin-left: 4px;
+    transform: translateY(4px);
+  }
+
+  &__partners {
+    margin-top: 18px;
+  }
+
+  &__partners-header {
+    margin: 0;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 23px;
+  }
+
+  &__pagination-btn {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__pagination-btn:focus {
+    outline: 0;
+  }
+
+  &__pagination-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: -2px;
+    border: 2px solid $dark-pink;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__pagination-btn path {
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+
+  &__pagination-btn:focus::after {
+    opacity: 1;
+  }
+
+  &__pagination-btn:hover path:first-of-type {
+    fill: $pink;
+  }
+
+  &__pagination-btn:hover path:last-of-type {
+    stroke: $white;
+  }
+
+  &__pagination-btn:active::after {
+    border-color: $light-pink;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 450px;
+    min-height: 150px;
+    border: 1px solid $light-gray;
+    cursor: pointer;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  &__img {
+    filter: grayscale(1);
+    opacity: 0.4;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  &__item:hover &__img,
+  &__item:focus &__img {
+    filter: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,326 @@
+// Edition
+
+.edition {
+  background-image: url("../img/edition-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+
+  &__container {
+    margin: 0;
+    padding: 80px 160px;
+    padding-bottom: 77px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__column:first-child {
+    margin-right: 40px;
+  }
+
+  &__column:last-child {
+    padding-top: 33px;
+  }
+
+  &__header {
+    color: $white;
+  }
+
+  &__filter {
+    margin-top: 17px;
+  }
+
+  &__filter-header {
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+
+  &__filter-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__filter-item {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  &__filter-item--selected {
+    color: $light-pink;
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+
+  &__label:hover {
+    color: $light-pink;
+  }
+
+  &__label:hover &__checkbox-custom {
+    border-color: $light-pink;
+  }
+
+  &__label:hover &__checkbox-custom::before {
+    opacity: 1;
+  }
+
+  &__label:active {
+    color: $dark-pink;
+  }
+
+  &__label:active &__checkbox-custom {
+    border-color: $dark-pink;
+  }
+
+  &__input-checkbox {
+    display: none;
+  }
+
+  &__checkbox-custom {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $white;
+    transition: border-color 0.15s ease;
+  }
+
+  &__checkbox-custom::before {
+    content: url("../img/dot.svg");
+    position: absolute;
+    top: -15px;
+    left: 3px;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  &__input-checkbox:checked + &__checkbox-custom::before {
+    opacity: 1;
+  }
+
+  &__input-checkbox:checked + &__checkbox-custom {
+    border-color: $pink;
+  }
+
+  &__price {
+    margin-top: 26px;
+  }
+
+  &__price-header {
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+
+  &__price-input {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  &__input-price {
+    height: 100%;
+    width: 73px;
+    padding: 4px 10px;
+    border: 1px solid rgba($pink, 0.5);
+    border-right: 0;
+    border-left: 0;
+    background: rgba($pink, 0.5);
+    color: $white;
+  }
+
+  &__input-price:focus {
+    outline: none;
+  }
+
+  &__price-left-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 4px 10px;
+    border: 1px solid rgba($white, 0.5);
+    border-right: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    font-size: 16px;
+  }
+
+  &__price-center-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 4px 10px;
+    border: 1px solid rgba($white, 0.5);
+    border-right: 0;
+    border-left: 0;
+  }
+
+  &__price-right-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 4px 10px;
+    border: 1px solid rgba($white, 0.5);
+    border-left: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pagination-page {
+    margin: 0 20px;
+  }
+
+  &__pagination-btn {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__pagination-btn:focus {
+    outline: 0;
+  }
+
+  &__pagination-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: -2px;
+    border: 2px solid $dark-pink;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+
+  &__pagination-btn path {
+    transition: fill 0.15s ease;
+  }
+
+  &__pagination-btn:focus::after {
+    opacity: 1;
+  }
+
+  &__pagination-btn:hover path:first-of-type {
+    fill: $pink;
+  }
+
+  &__pagination-btn:active::after {
+    border-color: $light-pink;
+  }
+
+  &__layout {
+    margin-top: 27px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item-img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__item-content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item-name {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  &__item-name--author {
+    font-weight: 400;
+  }
+
+  &__item-price {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    font-style: italic;
+  }
+
+  &__btn {
+    position: relative;
+    margin-top: 12px;
+    max-width: 120px;
+    min-height: 40px;
+    padding: 8px 14px;
+    border: 2px solid $pink;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  &__btn:focus {
+    outline: 0;
+  }
+
+  &__btn::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: -8px;
+    right: 0;
+    bottom: 0;
+    padding: 24px 64px;
+    border: 2px solid $light-pink;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__btn:focus::after {
+    opacity: 1;
+  }
+
+  &__btn:hover {
+    background-color: $pink;
+    color: $white;
+  }
+
+  &__btn:active {
+    margin-top: 10px;
+    border: 3px solid $light-pink;
+    outline: 0;
+  }
+}

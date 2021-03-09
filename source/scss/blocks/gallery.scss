@@ -1,0 +1,162 @@
+// Gallery
+
+.gallery {
+  color: $white;
+
+  &__container {
+    margin: 0;
+    padding: 0 160px;
+    background-image: url("../img/gallery-bg.jpg");
+    background-color: $black;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+    padding-bottom: 72px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__column:first-of-type {
+    width: 25%;
+    margin-right: 50px;
+  }
+
+  &__column:last-of-type {
+    margin-top: 25px;
+    width: 75%;
+  }
+
+  &__header {
+    color: $white;
+  }
+
+  &__filter {
+    margin-top: 18px;
+  }
+
+  &__filter-header {
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__filter-list {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__filter-item {
+    min-width: 400px;
+    max-height: 40px;
+    padding: 4px 20px;
+    padding-top: 1px;
+    border: 1px solid $gray;
+    line-height: 32px;
+    cursor: pointer;
+    color: $gray;
+  }
+
+  &__filter-item--selected {
+    padding: 8px 15px;
+    padding-top: 2px;
+    border-color: $white;
+    border-radius: 6px;
+    background-image: url("../img/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: 96.5% center;
+    color: $white;
+  }
+
+  &__filter-item--first {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  &__filter-item--last {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  &__description {
+    margin: 0;
+    margin-top: auto;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__description-link {
+    color: $pink;
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pagination-page {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  &__pagination-btn {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__pagination-btn:focus {
+    outline: 0;
+  }
+
+  &__pagination-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: -2px;
+    border: 2px solid $dark-pink;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+
+  &__pagination-btn path {
+    transition: fill 0.15s ease;
+  }
+
+  &__pagination-btn:focus::after {
+    opacity: 1;
+  }
+
+  &__pagination-btn:hover path:first-of-type {
+    fill: $pink;
+  }
+
+  &__pagination-btn:active::after {
+    border-color: $light-pink;
+  }
+
+  &__layout-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 50px;
+    margin: 0;
+    margin-top: 25px;
+    padding: 0;
+    list-style: none;
+  }
+}

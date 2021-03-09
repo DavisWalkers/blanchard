@@ -1,0 +1,157 @@
+// Contacts
+
+.contacts {
+  &__container {
+    margin: 0;
+  }
+
+  &__header {
+    padding-left: 160px;
+  }
+
+  &__row {
+    display: flex;
+    margin-top: 18px;
+  }
+
+  &__column:first-of-type {
+    padding-top: 120px;
+    padding-right: 122px;
+    padding-bottom: 116px;
+    padding-left: 160px;
+    border: 1px solid $light-gray;
+  }
+
+  &__column:last-of-type {
+    width: 70%;
+    background-color: $gray;
+    background-image: url("../img/map.png");
+    background-size: cover;
+  }
+
+  &__address {
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+
+  &__address--bold {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  &__form-header {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+
+  &__input {
+    margin-bottom: 23px;
+    min-width: 400px;
+    height: 40px;
+    padding: 4px 24px;
+    border: 1px solid $dark-gray;
+    border-radius: 100px;
+  }
+
+  &__input::placeholder {
+    color: $gray;
+  }
+
+  &__btn {
+    position: relative;
+    height: 25px;
+    max-width: 160px;
+    padding: 26px 34px;
+    margin-top: -4px;
+    border: 2px solid $pink;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    background-color: transparent;
+    color: $pink;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  &__btn:focus {
+    outline: 0;
+  }
+
+  &__btn::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: 0;
+    bottom: 0;
+    padding: 30px 82px;
+    border: 2px solid $light-pink;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__btn:focus::after {
+    opacity: 1;
+  }
+
+  &__btn:hover {
+    background-color: $pink;
+    color: $white;
+  }
+
+  &__btn:active {
+    margin-top: -6px;
+    border: 3px solid $light-pink;
+    outline: 0;
+  }
+
+  &__social {
+    margin-top: 38px;
+  }
+
+  &__social-header {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  &__social-list {
+    display: flex;
+    margin: 0;
+    margin-top: 18px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__social-item:first-child {
+    margin-right: 20px;
+  }
+
+  &__social-icon {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__social-icon--whatsup {
+    background-image: url("../img/whatsapp.png");
+  }
+
+  &__social-icon--tg {
+    background-image: url("../img/telegram.png");
+  }
+}

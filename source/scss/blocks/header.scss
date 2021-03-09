@@ -1,0 +1,212 @@
+// Header
+
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  &__upper-container {
+    margin: 0;
+    padding: 30px 160px;
+    background-color: $black;
+    height: 100px;
+  }
+
+  &__upper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 179px;
+  }
+
+  &__logo-img {
+    min-height: 40px;
+    min-width: 173px;
+  }
+
+  &__nav {
+    justify-self: flex-start;
+    margin-bottom: 6px;
+  }
+
+  &__upper-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__upper-item {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__upper-item:not(:last-child) {
+    margin-right: 65.3px;
+  }
+
+  &__upper-link {
+    color: $white;
+    transition: color 0.15s ease;
+  }
+
+  &__upper-link:hover {
+    color: $light-pink;
+  }
+
+  &__upper-link:active {
+    color: $pink;
+  }
+
+  &__login {
+    margin-left: auto;
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+
+  &__login:hover &__login-text {
+    color: $light-pink;
+  }
+
+  &__login:hover &__login-icon path {
+    fill: $light-pink;
+  }
+
+  &__login:active &__login-text {
+    color: $pink;
+  }
+
+  &__login:active &__login-icon path {
+    fill: $pink;
+  }
+
+  &__login-icon {
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+  }
+
+  &__login-icon path {
+    transition: fill 0.15s ease;
+  }
+
+  &__login-text {
+    font-size: 18px;
+    color: $white;
+    transition: color 0.15s ease;
+  }
+
+  &__lower-container {
+    margin: 0;
+    padding: 0 160px;
+    background-color: rgba($black, 0.4);
+  }
+
+  &__lower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  &__lower-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__lower-item {
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 18px;
+    color: $white;
+    transition: color 0.15s ease;
+  }
+
+  &__lower-item-icon path {
+    transition: stroke 0.15s ease;
+  }
+
+  &__lower-item:hover {
+    color: $light-pink;
+  }
+
+  &__lower-item:hover &__lower-item-icon path {
+    stroke: $light-pink;
+  }
+
+  &__lower-item:active {
+    color: $pink;
+  }
+
+  &__lower-item:active &__lower-item-icon path {
+    stroke: $pink;
+  }
+
+  &__lower-item:not(:last-child) {
+    margin-right: 96px;
+  }
+
+  &__lower-search {
+    white-space: nowrap;
+  }
+
+  &__label {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    transform: translate(5px, 6px);
+  }
+
+  &__input {
+    max-width: 218px;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    border: 0;
+    border-bottom: 1px solid rgba($white, 0.85);
+    font-size: 18px;
+    background-color: transparent;
+    color: $white;
+    transition: border-color 0.15s ease;
+  }
+
+  &__lower-search-icon rect,
+  &__lower-search-icon path {
+    transition: fill 0.15s ease;
+  }
+
+  &__input::placeholder {
+    color: rgba($white, 0.85);
+  }
+
+  &__lower-search:hover &__input {
+    cursor: pointer;
+    border-color: $pink;
+  }
+
+  &__lower-search:hover &__label {
+    cursor: pointer;
+  }
+
+  &__lower-search:hover &__lower-search-icon rect {
+    fill: $pink;
+  }
+
+  &__lower-search:hover &__lower-search-icon path {
+    fill: $pink;
+  }
+
+  &__input:focus {
+    outline: 1px solid $pink;
+    outline-offset: 5px;
+    border-color: $pink;
+  }
+
+  &__input:focus::placeholder {
+    color: transparent;
+  }
+}

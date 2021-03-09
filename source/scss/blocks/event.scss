@@ -1,0 +1,149 @@
+// Event
+
+.event {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 75px;
+  }
+
+  &__header {
+    align-self: flex-start;
+  }
+
+  &__list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    width: 33.33%;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__btn {
+    position: relative;
+    padding: 17px 35px;
+    margin-top: 50px;
+    border: 2px solid $pink;
+    outline: 0;
+    background-color: transparent;
+    color: $pink;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  &__btn:focus {
+    outline: 0;
+  }
+
+  &__btn::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: -8px;
+    right: 0;
+    bottom: 0;
+    padding: 34px 99px;
+    border: 2px solid $light-pink;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__btn:focus::after {
+    opacity: 1;
+  }
+
+  &__btn:hover {
+    background-color: $pink;
+    color: $white;
+  }
+
+  &__btn:active {
+    border: 3px solid $light-pink;
+    margin-top: 48px;
+    outline: 0;
+  }
+}
+
+.event-card {
+  max-height: 700px;
+  border: 1px solid $light-gray;
+
+  &__figure {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__caption {
+    display: inline-block;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 19px;
+    margin-top: 13px;
+    width: 150px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 400px;
+    padding: 0 30px 91px 50px;
+    color: $dark-gray;
+  }
+
+  &__header {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__description {
+    margin: 0;
+    margin-top: 2px;
+    line-height: 32px;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: auto;
+    border-bottom: 1px solid $pink;
+    color: $pink;
+    transition: font-weight 0.15s ease, color 0.15s ease;
+  }
+
+  &__link:hover {
+    font-weight: 700;
+  }
+
+  &__link:active {
+    outline: 0;
+    color: $dark-pink;
+    border-color: $dark-pink;
+  }
+}

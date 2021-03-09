@@ -1,0 +1,277 @@
+// Catalog
+
+.catalog {
+  color: $dark-gray;
+
+  &__container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+  }
+
+  &__header {
+    margin-right: 32px;
+  }
+
+  &__heading-list {
+    display: flex;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__heading-item {
+    height: 66px;
+    width: 66px;
+    cursor: pointer;
+  }
+
+  &__heading-item:focus {
+    outline: 0;
+  }
+
+  &__heading-item:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &__heading-link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: filter 0.2s ease;
+  }
+
+  &__heading-link:active,
+  &__heading-link:focus {
+    outline: none;
+  }
+
+  &__heading-link:hover,
+  &__heading-link:focus {
+    filter: drop-shadow(0px 0px 20px rgba($dark-pink, 0.7));
+  }
+
+  &__heading-link::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    left: 9px;
+    height: 44px;
+    width: 44px;
+    margin: -2px;
+    border: 2px solid $dark-pink;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &__heading-link:active {
+    filter: none;
+  }
+
+  &__heading-link:active::after {
+    opacity: 1;
+  }
+
+  &__heading-img {
+    display: inline-block;
+    height: 66px;
+    width: 66px;
+    background-repeat: no-repeat;
+    background-position: 40% 40%;
+  }
+
+  &__heading-item--selected {
+    border: 2px solid $pink;
+    border-radius: 50%;
+  }
+
+  &__heading-img--france {
+    background-image: url("../img/france.png");
+  }
+
+  &__heading-img--germany {
+    background-image: url("../img/germany.png");
+  }
+
+  &__heading-img--italy {
+    background-image: url("../img/italy.png");
+  }
+
+  &__heading-img--russia {
+    background-image: url("../img/russia.png");
+  }
+
+  &__heading-img--belgium {
+    background-image: url("../img/belgium.png");
+  }
+
+  &__description {
+    margin: 0;
+    margin-top: 13px;
+    width: 67.5%;
+    line-height: 32px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+  }
+
+  &__column:first-of-type {
+    margin-right: 50px;
+    width: 47%;
+  }
+
+  &__column:last-of-type {
+    width: 50%;
+  }
+
+  &__column-header {
+    margin: 0;
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__dates {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+  }
+
+  &__column-description {
+    margin: 0;
+    margin-top: 5px;
+    line-height: 32px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border: 1px solid $light-gray;
+    border-left: 0;
+    border-right: 0;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  &__item-img {
+    transition: transform 0.2s ease;
+  }
+
+  &__item-img path {
+    transition: fill 0.2s ease;
+  }
+
+  &__item:hover {
+    border-color: $pink;
+  }
+
+  &__item:hover &__item-text {
+    color: $pink;
+  }
+
+  &__item:hover &__item-img path:first-of-type {
+    fill: $pink;
+  }
+
+  &__item:hover &__item-img path:last-of-type {
+    stroke: $white;
+  }
+
+  &__item:active {
+    border-color: $dark-pink;
+    outline: 0;
+  }
+
+  &__item:active &__item-text {
+    color: $dark-pink;
+  }
+
+  &__item:active &__item-img path:first-of-type {
+    fill: $dark-pink;
+  }
+
+  &__item:active &__item-img {
+    border: 2px solid $light-pink;
+    border-radius: 50%;
+    transform: rotate(180deg);
+  }
+
+  &__item:first-of-type {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  &__item-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+  }
+
+  &__item-text {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    transition: color 0.2s ease;
+  }
+
+  &__item-content {
+    width: 100%;
+    padding: 26px 0;
+    margin-bottom: -1px;
+    border-top: 1px solid $pink;
+    border-bottom: 1px solid $pink;
+  }
+
+  &__item-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item-link {
+    font-size: 16px;
+    line-height: 32px;
+    color: $dark-gray;
+    transition: color 0.15s ease, padding-bottom 0.15s ease, border-bottom 0.15s ease;
+  }
+
+  &__item-link:hover {
+    padding-bottom: 2px;
+    border-bottom: 1px solid $pink;
+    color: $pink;
+  }
+
+  &__item-link:active {
+    padding-bottom: 0;
+    border: none;
+    outline: 0;
+    color: $dark-pink;
+  }
+}
